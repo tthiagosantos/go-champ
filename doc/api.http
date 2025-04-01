@@ -1,0 +1,53 @@
+### LOGIN
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "usuario": "admin",
+  "senha": "123456"
+}
+
+### Listar Campeonatos (JWT obrigatório)
+GET http://localhost:8080/campeonatos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+
+### Listar Partidas (JWT obrigatório)
+GET http://localhost:8080/campeonatos/2021/partidas?equipe=Flamengo&rodada=3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+
+
+###Cadastrar Torcedor (JWT obrigatório)
+POST http://localhost:8080/torcedores
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+
+{
+  "nome": "João Silva",
+  "email": "joao@example.com",
+  "time": "Flamengo"
+}
+
+###Broadcast (JWT obrigatório)
+POST http://localhost:8080/broadcast
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+
+{
+  "tipo": "inicio",
+  "time": "Flamengo",
+  "mensagem": "O jogo do Flamengo vai começar!"
+}
+
+###Broadcast (JWT obrigatório)
+POST http://localhost:8080/broadcast
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+
+{
+  "tipo": "fim",
+  "time": "Flamengo",
+  "placar": "2-1",
+  "mensagem": "Acabou o jogo!"
+}
