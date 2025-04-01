@@ -9,29 +9,24 @@ import (
 )
 
 func CadastrarTorcedor(c *gin.Context) {
-	var t models.Torcedor
-	if err := c.ShouldBindJSON(&t); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Dados inválidos"})
+	var input models.Torcedor
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "JSON inválido"})
 		return
 	}
 
-	if t.Nome == "" || t.Email == "" || t.Time == "" {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Nome, email e time são obrigatórios"})
+	if input.Nome == "" || input.Email == "" || input.Time == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios: nome, email, time"})
 		return
 	}
 
-	if !services.ValidarEmail(t.Email) {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Email inválido"})
-		return
-	}
-
-	novoTorcedor, err := services.SalvarTorcedor(t)
+	novoTorcedor, err := services.SalvarTorcedor(input)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
+	c.JSON(http.StatusCreated, gin.H{
 		"id":       novoTorcedor.ID,
 		"nome":     novoTorcedor.Nome,
 		"email":    novoTorcedor.Email,

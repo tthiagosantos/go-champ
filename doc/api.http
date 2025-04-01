@@ -21,11 +21,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwN
 ###Cadastrar Torcedor (JWT obrigatório)
 POST http://localhost:8080/torcedores
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM1NTgwODYsImlhdCI6MTc0MzU1MDg4Niwic3ViIjoiYWRtaW4ifQ.5PiMdBZ4RJT_j5OzA1bUnKA5lvLZLQTSy9VhmjYLoU0
 
 {
   "nome": "João Silva",
-  "email": "joao@example.com",
+  "email": "joao@2example.com",
   "time": "Flamengo"
 }
 

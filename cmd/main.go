@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/tthiagosantos/gochamp/internal/auth"
 	"github.com/tthiagosantos/gochamp/internal/handlers"
+	"github.com/tthiagosantos/gochamp/internal/infrastructure/database"
 	"log"
 	"net/http"
 	"os"
@@ -11,13 +12,10 @@ import (
 )
 
 func main() {
+	database.InitPostgres()
 	r := gin.Default()
 
-	// Rota pública (login)
 	r.POST("/auth/login", handlers.Login)
-
-	// Rota pública opcional (cadastro de usuário) - não implementado em detalhes
-	// r.POST("/auth/register", handlers.Register)
 
 	protected := r.Group("/")
 	protected.Use(auth.JWTAuthMiddleware())

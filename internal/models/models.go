@@ -19,7 +19,7 @@ type PartidaResponse struct {
 }
 
 type Torcedor struct {
-	ID    int    `json:"id,omitempty"` // gerado pelo sistema
+	ID    int    `json:"id,omitempty"`
 	Nome  string `json:"nome"`
 	Email string `json:"email"`
 	Time  string `json:"time"`
