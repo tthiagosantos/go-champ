@@ -6,10 +6,10 @@ include .env
 export $(shell sed 's/=.*//' .env)
 
 migrate-up:
-	goose -dir $(MIGRATE_DIR) postgres "$(DATABASE_URL)" up
+	goose -dir $(MIGRATE_DIR) postgres "$(DATABASE_URL_LOCAL_MIGRATION)" up
 
 migrate-down:
-	goose -dir $(MIGRATE_DIR) postgres "$(DATABASE_URL)" down
+	goose -dir $(MIGRATE_DIR) postgres "$(DATABASE_URL_LOCAL_MIGRATION)" down
 
 migrate-create:
 	@read -p "Nome da migration: " name; \

@@ -25,7 +25,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM1NTgwO
 
 {
   "nome": "João Silva",
-  "email": "joao@2example.com",
+  "email": "joao@22example.com",
   "time": "Flamengo"
 }
 

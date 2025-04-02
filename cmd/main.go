@@ -5,7 +5,6 @@ import (
 	"github.com/tthiagosantos/gochamp/internal/handlers"
 	"github.com/tthiagosantos/gochamp/internal/infrastructure/database"
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -34,13 +33,9 @@ func main() {
 		port = "8080"
 	}
 
-	server := &http.Server{
-		Addr:    ":" + port,
-		Handler: r,
-	}
-
 	log.Printf("Servidor rodando na porta %s", port)
-	if err := server.ListenAndServe(); err != nil {
-		log.Fatalf("Erro ao iniciar servidor: %v", err)
+	err := r.Run("0.0.0.0:8080")
+	if err != nil {
+		return
 	}
 }

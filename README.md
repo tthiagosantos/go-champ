@@ -35,7 +35,15 @@ SSH: git clone git@github.com:tthiagosantos/go-champ.git
 ```
 
 ```
-docker compose up
+docker compose up -d
+```
+
+```
+make migrate-up
+```
+
+```
+docker-compose logs -f go_champ
 ```
 
 ## Documentacao

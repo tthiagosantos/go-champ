@@ -7,12 +7,14 @@ import (
 	"github.com/tthiagosantos/gochamp/internal/models"
 	"io"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
 
-const baseURL = "http://api.football-data.org/v4"
-const apiToken = "6311a66f5f8746fd8860a5de6173f49f"
+var baseURL = os.Getenv("BASE_URL_API")
+
+var apiToken = os.Getenv("API_KEY")
 
 type CompetitionResponse struct {
 	Competitions []struct {

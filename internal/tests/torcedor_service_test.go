@@ -29,7 +29,6 @@ func TestSalvarTorcedor_Success(t *testing.T) {
 	assert.NoError(t, err)
 	defer db.Close()
 
-	// 👉 sobrescreve o banco global com o mock
 	database.DB = db
 
 	torcedor := models.Torcedor{

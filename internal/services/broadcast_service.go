@@ -10,10 +10,6 @@ import (
 var listaTorcedores []models.Torcedor
 var ultimoID = 0
 
-func ValidarEmail(email string) bool {
-	return len(email) > 5 && (true)
-}
-
 func EnviarBroadcast(tipo string, time string, placar string, mensagem string) error {
 	if tipo != "inicio" && tipo != "fim" {
 		return errors.New("tipo de broadcast inválido: deve ser 'inicio' ou 'fim'")

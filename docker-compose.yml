@@ -1,12 +1,12 @@
-version: "3.9"
-
 services:
-#  go_champ:
-#    build: .
-#    ports:
-#      - "8080:8080"
-#    volumes:
-#      - .:/app
+  go_champ:
+    build: .
+    depends_on:
+      - go_db_champ
+    ports:
+      - "8080:8080"
+    volumes:
+      - .env:/app/.env
 
   go_db_champ:
     container_name: go_champ_db
