@@ -10,7 +10,7 @@ Content-Type: application/json
 ### Listar Campeonatos (JWT obrigatório)
 GET http://localhost:8080/campeonatos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM0NzkwNjgsImlhdCI6MTc0MzQ3MTg2OCwic3ViIjoiYWRtaW4ifQ.3t8GybLiHRfVbmm2XgoBl0eIWcoZFctHnPD9XNjr0RY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM3OTAwMzcsImlhdCI6MTc0Mzc4MjgzNywic3ViIjoiYWRtaW4ifQ.c0Qqbjbm-kXVJicVVDu9odFN_l9ir_QLqmgKwJpKVBk
 
 ### Listar Partidas (JWT obrigatório)
 GET http://localhost:8080/campeonatos/2021/partidas?equipe=Flamengo&rodada=3

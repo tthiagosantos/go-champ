@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/joho/godotenv"
 	"github.com/tthiagosantos/gochamp/internal/auth"
 	"github.com/tthiagosantos/gochamp/internal/handlers"
 	"github.com/tthiagosantos/gochamp/internal/infrastructure/database"
@@ -11,6 +12,10 @@ import (
 )
 
 func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Println("Falha ao carregar .env: ", err)
+	}
+
 	database.InitPostgres()
 	r := gin.Default()
 

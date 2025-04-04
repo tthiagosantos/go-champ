@@ -12,10 +12,6 @@ import (
 	"strings"
 )
 
-var baseURL = os.Getenv("BASE_URL_API")
-
-var apiToken = os.Getenv("API_KEY")
-
 type CompetitionResponse struct {
 	Competitions []struct {
 		ID   int    `json:"id"`
@@ -48,12 +44,12 @@ type MatchesResponse struct {
 }
 
 func BuscarCampeonatos() ([]models.Campeonato, error) {
-	url := baseURL + "/competitions/"
+	url := os.Getenv("BASE_URL_API") + "/competitions/"
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Add("X-Auth-Token", apiToken)
+	req.Header.Add("X-Auth-Token", os.Getenv("API_KEY"))
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -90,12 +86,12 @@ func BuscarCampeonatos() ([]models.Campeonato, error) {
 }
 
 func BuscarPartidas(idCampeonato string, equipe string, rodada string) ([]models.PartidaResponse, error) {
-	url := baseURL + "/competitions/" + idCampeonato + "/matches"
+	url := os.Getenv("BASE_URL_API") + "/competitions/" + idCampeonato + "/matches"
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Add("X-Auth-Token", apiToken)
+	req.Header.Add("X-Auth-Token", os.Getenv("API_KEY"))
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
